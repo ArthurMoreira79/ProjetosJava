@@ -2,7 +2,6 @@ package br.com.locadoraImoveis.teste;
 
 import br.com.locadoraImoveis.dao.ClienteDAO;
 import br.com.locadoraImoveis.model.Cliente;
-import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
 
@@ -24,12 +23,12 @@ public class ClienteDAOtest {
         System.out.println("Cliente 1 inserido: " + c1.getNome());
 
         Cliente c2 = new Cliente();
-        c1.setNome("Pedro Lucas");
-        c1.setCpf("333.444.555.67");
-        c1.setTelefone1("9988882222");
-        c1.setTelefone2("9844445555");
-        c1.setEmail("pedrolucas@email.com");
-        c1.setDtNascimento(LocalDate.of(2002, 7, 22));
+        c2.setNome("Pedro Lucas");
+        c2.setCpf("333.444.555.67");
+        c2.setTelefone1("9988882222");
+        c2.setTelefone2("9844445555");
+        c2.setEmail("pedrolucas@email.com");
+        c2.setDtNascimento(LocalDate.of(2002, 7, 22));
         dao.inserir(c2);
         System.out.println("Cliente 2 inserido: " + c2.getNome());
 
@@ -60,12 +59,12 @@ public class ClienteDAOtest {
         System.out.println("\nAtualizando cliente: ");
         if (encontradoCpf != null) {
             encontradoCpf.setTelefone1("9867696769");
-            encontradoCpf.setEmail("arthur.novo@email.com");
+            encontradoCpf.setEmail("pedro.novo@email.com");
             dao.atualizar(encontradoCpf);
             System.out.println("Cliente atualizado.");
 
             // verificacao
-            Cliente verificado = dao.buscarPorCPF("111.222.333-44");
+            Cliente verificado = dao.buscarPorCPF("333.444.555.67");
             System.out.println("Novo telefone: " + verificado.getTelefone1());
             System.out.println("Novo email: " + verificado.getEmail());
         }

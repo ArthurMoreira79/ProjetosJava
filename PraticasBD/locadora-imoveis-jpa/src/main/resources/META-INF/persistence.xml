@@ -6,24 +6,26 @@
 
     <persistence-unit name="locadoraImoveis" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>br.com.locadoraImoveis.model.Cliente</class>
+        <class>br.com.locadoraImoveis.model.TipoImovel</class>
+        <class>br.com.locadoraImoveis.model.Imovel</class>
+        <class>br.com.locadoraImoveis.model.Locacao</class>
+        <class>br.com.locadoraImoveis.model.Aluguel</class>
+
         <properties>
-            <!-- Configuring JDBC properties -->
-            <property name="javax.persistence.jdbc.url"
+
+            <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:mysql://localhost/locadoraImoveis?useSSL=false&amp;serverTimezone=UTC&amp;createDatabaseIfNotExist=true"/>
+            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <property name="jakarta.persistence.jdbc.password" value="AKml2703?" />
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="AKml2703?" />
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-
-            <!-- Hibernate properties -->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
-
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-
         </properties>
 
     </persistence-unit>
-
 </persistence>
